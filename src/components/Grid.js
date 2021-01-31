@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Row from './Row.js'
 
 export default class Grid extends Component {
     constructor(props){
@@ -9,10 +10,17 @@ export default class Grid extends Component {
 
         }
     }
+    CreateAGrid() {
+        var rows =  [];
+        for (var i = 0; i< this.state.rows; i++)  {
+            rows.push(<Row/>)
+        }
+        return (rows)
+    }
     render() {
         return (
-            <div>
-                <h1>This is a {this.state.rows} by {this.state.cols} Grid </h1>
+            <div id="Grid">
+                {this.CreateAGrid()}
             </div>
         )
     }
