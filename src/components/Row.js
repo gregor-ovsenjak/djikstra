@@ -6,20 +6,23 @@ export default class Row extends Component {
         super(props)
         this.state = {
             columns : this.props.columns,
+            class: this.props.className,
+            style:this.props.style
         }
     }
 
     CreateCols() {
         var columns =  [];
         for (var i = 0; i< this.state.columns; i++)  {
-            columns.push(<div key={i} className="d-inline-block border border-5 border-dark rounded position-relative" style={{height:'100%', width: 100/this.state.columns+'%', minWidth:'5px',minHeight:'20px'}}></div>)
+            columns.push(<div key={i} className="col-md border border-dark rounded" style={{height:'100%'}}></div>)
         }
+        //columns.push(<div key={i} className="w-100"></div>)
         return (columns)
     }
 
     render() {
         return (
-            <div>
+            <div className={this.state.class} style={this.state.style}>
                 {this.CreateCols()}
             </div>
         )

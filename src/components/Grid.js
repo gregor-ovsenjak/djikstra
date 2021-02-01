@@ -13,15 +13,15 @@ export default class Grid extends Component {
     }
     CreateRows() {
         var rows =  [];
-        for (var i = 0; i< this.state.rows; i++)  {
-            rows.push(<Row key={i} className="row" style={{ height: 100/this.state.rows+'%' }} columns={this.state.cols}/>)
+        for (var i = 0; i< this.state.rows; i++) { 
+            rows.push(<Row key={i} className="row" style={{height:100/this.state.rows + '%'}} columns={this.state.cols}/>)
         }
         return (rows)
     }
 
     render() {
         return (
-            <div key={100} id="Grid" className=".container-fluid">
+            <div key={100} id="Grid" className="container-fluid" style={{height:'500px',width:'500px',border:'5px black dotted'}}>
                 {this.CreateRows()}
             </div>
         )
