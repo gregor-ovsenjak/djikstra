@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Row from './Row.js'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class Grid extends Component {
     constructor(props){
@@ -10,17 +11,18 @@ export default class Grid extends Component {
 
         }
     }
-    CreateAGrid() {
+    CreateRows() {
         var rows =  [];
         for (var i = 0; i< this.state.rows; i++)  {
-            rows.push(<Row/>)
+            rows.push(<Row key={i} className="row" style={{ height: 100/this.state.rows+'%' }} columns={this.state.cols}/>)
         }
         return (rows)
     }
+
     render() {
         return (
-            <div id="Grid">
-                {this.CreateAGrid()}
+            <div key={100} id="Grid" className=".container-fluid">
+                {this.CreateRows()}
             </div>
         )
     }
