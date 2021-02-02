@@ -5,7 +5,7 @@ import Grid from './components/Grid.js'
 function App() {
   return (
     <div className="App">
-      <Grid  Nx={12} Ny={12}/>
+      <Grid  Nx={5} Ny={2}/>
     </div>
   );
 }

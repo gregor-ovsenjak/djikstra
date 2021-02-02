@@ -18,13 +18,24 @@ export default class Grid extends Component {
         }
         return (rows)
     }
-
-    render() {
-        return (
-            <div key={100} id="Grid" className="container-fluid" style={{height:'500px',width:'500px',border:'5px black dotted'}}>
-                {this.CreateRows()}
-            </div>
-        )
+    CreateSuperCols(callback){
+        let superColumns = []
+        for (var i =0 ; i<4; i++){
+            superColumns.push(<div className="col" style={{height:'100%',width:'100%'}}>{callback}</div> )
+            
+        }
+        return superColumns;
     }
+    render() {
+        let list = []
+        for(var i = 0; i< 4; i++){
+            list.push(<div className="row p-0 m-0" style={{height:'25%',width:'100%'}}>
+                {this.CreateSuperCols(this.CreateRows())}
+            </div>)
+        }
+        return (<div key={100} id="Grid" className="container-md p-0" style={{height:'500px',width:'500px'}}>{list}</div>)
+        }
+        
 }
+
 

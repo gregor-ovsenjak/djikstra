@@ -14,9 +14,9 @@ export default class Row extends Component {
     CreateCols() {
         var columns =  [];
         for (var i = 0; i< this.state.columns; i++)  {
-            columns.push(<div key={i} className="col-md border border-dark rounded" style={{height:'100%'}}></div>)
+            columns.push(<div key={i} className="border border-dark rounded" style={{height:'100%', width:100/this.state.columns+'%'}}></div>)
         }
-        //columns.push(<div key={i} className="w-100"></div>)
+        columns.push(<div key={i} className="w-100"></div>)
         return (columns)
     }
 
