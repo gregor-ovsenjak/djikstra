@@ -14,7 +14,12 @@ export default class Grid extends Component {
     CreateRows() {
         var rows =  [];
         for (var i = 0; i< this.state.rows; i++) { 
-            rows.push(<Row key={i} className="row" style={{height:100/this.state.rows + '%'}} columns={this.state.cols}/>)
+            rows.push(<Row 
+                key={i} className="row" 
+                style={{height:100/this.state.rows + '%'}}
+                columns={this.state.cols} 
+                styleOfColumns={{height:'100%', width:100/this.state.cols+'%',backgroundColor:'white'}}
+             />)
         }
         return (rows)
     }
