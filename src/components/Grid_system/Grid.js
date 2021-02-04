@@ -15,7 +15,8 @@ export default class Grid extends Component {
         var rows =  [];
         for (var i = 0; i< this.state.rows; i++) { 
             rows.push(<Row 
-                key={i} className="row" 
+                key={i} 
+                className="row" 
                 style={{height:100/this.state.rows + '%'}}
                 columns={this.state.cols} 
                 styleOfColumns={{height:'100%', width:100/this.state.cols+'%',backgroundColor:'white'}}
@@ -38,7 +39,11 @@ export default class Grid extends Component {
                 {this.CreateSuperCols(this.CreateRows())}
             </div>)
         }
-        return (<div key={100} id="Grid" className="container-md p-0" style={{height:'500px',width:'500px'}}>{list}</div>)
+        return (<div 
+            key={100} 
+            id="Grid"
+            className=" container-md p-0 float-right"  
+            style={{height:'625px',width:'650px'}}>{list}</div>)
         }
         
 }
