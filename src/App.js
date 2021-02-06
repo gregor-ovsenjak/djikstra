@@ -5,7 +5,7 @@ import Grid from './components/Grid_system/Grid.js'
 function App() {
   return (
     <div className="App position-relative">
-      <Grid  Nx={12} Ny={12}/>
+      <Grid  Nx={10} Ny={10}/>
     </div>
   );
 }

@@ -4,19 +4,38 @@ export default class Column extends Component {
     constructor(props){
         super(props)
         this.changeColor = this.changeColor.bind(this)
+        this.OnMouseOverEvent = this.mouseOverHandler.bind(this)
         this.state = {
             class: this.props.className,
-            styleOfColumns: this.props.styleOfColumns
+            styleOfColumns: this.props.styleOfColumns,
+            mouseIsDown : this.props.mouseIsDown,
         }
     }
+    static getDerivedStateFromProps(props, state) {
+        if (props.mouseIsDown !== state.mouseIsDown) {
+          return {
+            mouseIsDown: props.mouseIsDown,
+          };
+        }
+    
+        // Return null to indicate no change to state.
+        return null;
+      }
 
-    changeColor() {
-        var newColor = 'blue';
+    changeColor (color) {
+        var newColor = color;
         this.setState(prevState => {
             let styleOfColumns = Object.assign({}, prevState.styleOfColumns);  
             styleOfColumns.backgroundColor = newColor;                                     
             return { styleOfColumns};                          
           })
+    }
+    mouseOverHandler(e){
+        //console.log(this.state.mouseDown)
+        if (this.state.mouseIsDown){
+            console.log("mouseOver")
+            this.changeColor("red")
+        }
     }
 
     render() {
@@ -25,7 +44,8 @@ export default class Column extends Component {
                 <div  
                     className={this.state.class}
                     style= {this.state.styleOfColumns}
-                    onClick = {this.changeColor} >
+                    onClick = {() => this.changeColor("blue")} 
+                    onMouseOver ={(e) => this.mouseOverHandler(e)} >
 
                 </div>
             </>
