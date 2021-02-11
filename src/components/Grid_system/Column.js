@@ -9,6 +9,8 @@ export default class Column extends Component {
             class: this.props.className,
             styleOfColumns: this.props.styleOfColumns,
             mouseIsDown : this.props.mouseIsDown,
+            isWall : false,
+            isDestination: false
         }
     }
     static getDerivedStateFromProps(props, state) {
@@ -31,10 +33,11 @@ export default class Column extends Component {
           })
     }
     mouseOverHandler(e){
-        //console.log(this.state.mouseDown)
-        if (this.state.mouseIsDown){
-            console.log("mouseOver")
+        if(this.state.mouseIsDown){
             this.changeColor("red")
+            this.setState({isWall:true},() => {
+                console.log(this.state);
+              });
         }
     }
 
@@ -44,8 +47,8 @@ export default class Column extends Component {
                 <div  
                     className={this.state.class}
                     style= {this.state.styleOfColumns}
-                    onClick = {() => this.changeColor("blue")} 
-                    onMouseOver ={(e) => this.mouseOverHandler(e)} >
+                    onClick = {() =>{this.setState({isDestination:true});this.changeColor("blue")}} 
+                    onMouseOver ={(e) => {this.mouseOverHandler(e)}} >
 
                 </div>
             </>

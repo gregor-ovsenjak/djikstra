@@ -14,12 +14,14 @@ export default class Grid extends Component {
 
         }
     }
-    onMouseDownEvent() {
+    onMouseDownEvent(e) {
+        e.preventDefault();
         this.setState({mouseIsDown:true})
         //console.log(this.state.mouseIsDown)
     }
 
-    onMouseUpEvent() {
+    onMouseUpEvent(e) {
+        e.preventDefault();
         this.setState({mouseIsDown:false})
         //console.log(this.state.mouseIsDown)
     }
@@ -59,8 +61,8 @@ export default class Grid extends Component {
         return (<div 
             key={100} 
             id="Grid"
-            onMouseDown = {this.onMouseDownEvent}
-            onMouseUp = {this.onMouseUpEvent}
+            onMouseDown = {e => this.onMouseDownEvent(e)}
+            onMouseUp = {e =>  this.onMouseUpEvent(e)}
             className="container-md p-0 float-right"  
             style={{height:'625px',width:'650px'}}>{this.lists()}</div>)
         }
