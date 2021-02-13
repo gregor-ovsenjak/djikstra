@@ -44,7 +44,7 @@ export default class Grid extends Component {
     }
     CreateSuperCols(callback){
         let superColumns = []
-        for (var i =0 ; i<4; i++){
+        for (var i =0 ; i<1; i++){
             superColumns.push(<div className="col" style={{height:'100%',width:'100%'}}>{callback}</div> )
             
         }
@@ -52,8 +52,8 @@ export default class Grid extends Component {
     }
     lists() {
         let list = []
-        for(var i = 0; i< 4; i++){
-            list.push(<div className="row p-0 m-0" style={{height:'25%',width:'100%'}}>
+        for(var i = 0; i< 1; i++){
+            list.push(<div className="row p-0 m-0" style={{height:'100%',width:'100%'}}>
                 {this.CreateSuperCols(this.CreateRows())}
             </div>)
         }

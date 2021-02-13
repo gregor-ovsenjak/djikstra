@@ -7,7 +7,7 @@ function App() {
     <>
     <Navigator />
     <div className="App position-relative">
-      <Grid  Nx={10} Ny={10}/>
+      <Grid  Nx={36} Ny={36}/>
     </div>
     </>
   );
