@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import Row from './Row.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
+import './Grid.css'
 export default class Grid extends Component {
     constructor(props){
         super(props)
@@ -63,8 +65,8 @@ export default class Grid extends Component {
             id="Grid"
             onMouseDown = {e => this.onMouseDownEvent(e)}
             onMouseUp = {e =>  this.onMouseUpEvent(e)}
-            className="container-md p-0 float-right"  
-            style={{height:'625px',width:'650px'}}>{this.lists()}</div>)
+            className="container-md p-0 float-right border-10"  
+            style={{height:'625px',width:'50%'}}>{this.lists()}</div>)
         }
         
 }

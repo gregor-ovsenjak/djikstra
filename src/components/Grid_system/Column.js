@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import './Column.css';
 export default class Column extends Component {
     constructor(props){
         super(props)
@@ -45,7 +45,7 @@ export default class Column extends Component {
         return (
             <>
                 <div  
-                    className={this.state.class}
+                    className={this.state.class+ " box"}
                     style= {this.state.styleOfColumns}
                     onClick = {() =>{this.setState({isDestination:true});this.changeColor("blue")}} 
                     onMouseOver ={(e) => {this.mouseOverHandler(e)}} >
